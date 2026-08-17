@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-import asyncio
 app = FastAPI()
 
 bookings = {}
