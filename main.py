@@ -15,13 +15,11 @@ async def root():
 
 @app.get("/availability")
 async def check_availability(date: str):
-    await asyncio.sleep(12)
-
-    return {
-        "date": date,
-        "available": True,
-        "slots": ["10:00", "14:00", "16:00"]
-    }
+    from fastapi import HTTPException
+    raise HTTPException(
+        status_code=500,
+        detail="Availability service temporarily unavailable"
+    )
 
 
 class Booking(BaseModel):
