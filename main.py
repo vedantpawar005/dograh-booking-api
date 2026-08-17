@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-
+import asyncio
 app = FastAPI()
 
 bookings = {}
@@ -11,8 +11,12 @@ async def root():
     return {"status": "API is running"}
 
 
+
+
 @app.get("/availability")
 async def check_availability(date: str):
+    await asyncio.sleep(12)
+
     return {
         "date": date,
         "available": True,
